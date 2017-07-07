@@ -1,0 +1,23 @@
+Package: farsfunctions
+Type: Package
+Title: Data analysis of fatal traffic accidents (Title Case)
+Version: 0.1.0
+Author: RM Hoek
+Maintainer: RM Hoek <rmhoek66@gmail.com>
+Description: The fars functions allow for the analysis of yearly census data files from the National Highway Traffic Safety Administration (NHTSA) of the United States Department of Transportation.
+    The data from the Fatality Analysis Reporting System (FARS) can be accessed through FTP, explained in the vignette.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Suggests: knitr,
+    rmarkdown,
+    testthat
+Imports: dplyr,
+    foreign,
+    lubridate,
+    magrittr,
+    maps,
+    readr,
+    tidyr
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
