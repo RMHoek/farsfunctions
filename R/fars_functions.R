@@ -112,6 +112,8 @@ make_fars_file <- function(year){
 #' @export
 
 fars_read_years <- function(years) {
+    # to avoid 'no visible binding for global variable' note at R CMD check
+    MONTH = NULL
     lapply(years, function(year) {
         file <- make_filename(year)
         tryCatch({
@@ -150,6 +152,8 @@ fars_read_years <- function(years) {
 
 fars_summarize_years <- function(years) {
     dat_list <- fars_read_years(years)
+    # to avoid 'no visible binding for global variable' note at R CMD check
+    MONTH = n = NULL
     dplyr::bind_rows(dat_list) %>%
         dplyr::group_by(year, MONTH) %>%
         dplyr::summarize(n = n()) %>%
@@ -184,7 +188,8 @@ fars_map_state <- function(state.num, year) {
     filename <- make_filename(year)
     data <- fars_read(filename)
     state.num <- as.integer(state.num)
-
+    # to avoid 'no visible binding for global variable' note at R CMD check
+    STATE = NULL
     if(!(state.num %in% unique(data$STATE)))
         stop("invalid STATE number: ", state.num)
     data.sub <- dplyr::filter(data, STATE == state.num)
